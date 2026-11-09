@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="65" y1="27" x2="817" y2="584" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#dceeff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="276" y1="173" x2="636" y2="446" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#eaf5ff"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h900v600H0z"/>
+  <circle cx="748" cy="135" r="132" fill="#bceaff" opacity=".55"/>
+  <circle cx="165" cy="470" r="176" fill="#eaf5ff"/>
+  <rect x="196" y="126" width="508" height="340" rx="34" fill="url(#panel)" stroke="#8ebbe2" stroke-width="8"/>
+  <path d="M196 165h508" stroke="#adcce7" stroke-width="6"/>
+  <circle cx="229" cy="145" r="7" fill="#06b6d4"/>
+  <circle cx="253" cy="145" r="7" fill="#60a5fa"/>
+  <circle cx="277" cy="145" r="7" fill="#1d4ed8"/>
+  <path d="M309 230h91v79h-91zm191 0h91v79h-91zm-96 142h91v57h-91zm-89-103h46m184 0h45m-94 10v65m-91-114h95" stroke="#2563eb" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <path d="M355 269h0m191 0h0m-96 132h0" stroke="#06b6d4" stroke-linecap="round" stroke-width="19"/>
+  <circle cx="355" cy="269" r="22" fill="#d3f6fb"/>
+  <circle cx="546" cy="269" r="22" fill="#d3f6fb"/>
+  <circle cx="450" cy="401" r="22" fill="#d3f6fb"/>
+</svg>

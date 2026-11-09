@@ -1,0 +1,1241 @@
+@media (max-width: 1023px) {
+  .hero-grid,
+  .split-grid,
+  .contact-wrap,
+  .training-layout,
+  .why-feature__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 88px 0 72px;
+  }
+
+  /* Final Hairline Riffle overrides. Keep after legacy responsive rules. */
+  .folder-riffle {
+    min-height: clamp(540px, calc(100svh - 150px), 680px);
+    overflow: visible;
+  }
+
+  .folder-riffle__viewport {
+    inset: 0;
+    overflow: visible;
+  }
+
+  .folder-riffle__deck {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .folder-riffle__story {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 4;
+    width: min(34%, 390px);
+    min-height: 260px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 24px;
+  }
+
+  .folder-riffle__story-window {
+    min-height: 180px;
+    max-width: 380px;
+  }
+
+  .folder-riffle__story-window h3 {
+    max-width: 360px;
+    margin-bottom: 18px;
+    font-size: clamp(2rem, 3.4vw, 3.5rem);
+    line-height: .98;
+  }
+
+  .folder-riffle__story-window p {
+    max-width: 360px;
+    line-height: 1.7;
+  }
+
+  .folder-riffle__progress {
+    width: 220px;
+    gap: 10px;
+  }
+
+  .folder-riffle__progress-line {
+    flex: 1;
+  }
+
+  .folder-card {
+    top: 50%;
+    left: 50%;
+    width: min(560px, calc(100vw - 64px));
+    height: clamp(340px, calc(100svh - 300px), 460px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  .folder-card__surface {
+    background: #f9fcff;
+  }
+
+  .folder-card__image {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+
+  .folder-card__surface::before,
+  .folder-card__surface::after {
+    display: none;
+  }
+
+  .folder-card__surface {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  @media (max-width: 899px) {
+    .folder-riffle {
+      min-height: 650px;
+    }
+
+    .folder-riffle__story {
+      position: relative;
+      top: auto;
+      width: 100%;
+      min-height: 230px;
+      transform: none;
+      padding: 18px 0 0;
+    }
+
+    .folder-riffle__story-window {
+      min-height: 145px;
+      max-width: 100%;
+    }
+
+    .folder-riffle__story-window h3,
+    .folder-riffle__story-window p {
+      max-width: 100%;
+    }
+
+    .folder-riffle__viewport {
+      inset: 220px 0 0;
+    }
+
+    .folder-card {
+      width: min(540px, 94%);
+      height: min(330px, 48vw);
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .faq-feature {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .folder-riffle__progress {
+      width: 190px;
+    }
+
+    .folder-card {
+      width: 100%;
+      height: 270px;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .process-story {
+      min-height: auto;
+      padding: 82px 0;
+    }
+
+    .process-story__sticky {
+      position: relative;
+      top: auto;
+      min-height: auto;
+    }
+
+    .process-story__layout {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+
+    .process-story__steps {
+      order: 1;
+    }
+
+    .process-story__visual {
+      order: 0;
+      min-height: min(58vw, 430px);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .process-story {
+      padding: 72px 0;
+    }
+
+    .process-story__heading {
+      margin-bottom: 34px;
+    }
+
+    .process-story__layout {
+      gap: 34px;
+    }
+
+    .process-story__visual {
+      min-height: 270px;
+      border-radius: 20px;
+    }
+
+    .process-story__visual-caption {
+      right: 18px;
+      bottom: 17px;
+      left: 18px;
+    }
+
+    .process-story__step {
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .process-story__step-marker {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+    }
+
+    .process-story__rail {
+      min-height: 320px;
+    }
+  }
+
+  /* Current Hairline Riffle geometry: keep this layer after legacy breakpoints. */
+  .folder-riffle {
+    min-height: clamp(540px, calc(100svh - 150px), 680px);
+  }
+
+  .folder-riffle__viewport {
+    inset: 0;
+    overflow: visible;
+  }
+
+  .folder-riffle__deck {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+  }
+
+  .folder-riffle__story {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 4;
+    width: min(34%, 390px);
+    min-height: 260px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 24px;
+  }
+
+  .folder-riffle__story-window {
+    min-height: 180px;
+    max-width: 380px;
+  }
+
+  .folder-riffle__story-window h3 {
+    max-width: 360px;
+    margin-bottom: 18px;
+    font-size: clamp(2rem, 3.4vw, 3.5rem);
+    line-height: .98;
+  }
+
+  .folder-riffle__story-window p {
+    max-width: 360px;
+    line-height: 1.7;
+  }
+
+  .folder-riffle__progress {
+    width: 220px;
+    gap: 10px;
+  }
+
+  .folder-riffle__progress-line {
+    flex: 1;
+  }
+
+  .folder-card {
+    top: 50%;
+    left: 50%;
+    width: min(560px, calc(100vw - 64px));
+    height: clamp(340px, calc(100svh - 300px), 460px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  .folder-card__surface {
+    background: #f9fcff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .folder-card__image {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+
+  .folder-card__surface::before,
+  .folder-card__surface::after {
+    display: none;
+  }
+
+  @media (max-width: 899px) {
+    .folder-riffle {
+      min-height: 650px;
+    }
+
+    .folder-riffle__story {
+      position: relative;
+      top: auto;
+      width: 100%;
+      min-height: 230px;
+      transform: none;
+      padding: 18px 0 0;
+    }
+
+    .folder-riffle__story-window {
+      min-height: 145px;
+      max-width: 100%;
+    }
+
+    .folder-riffle__story-window h3,
+    .folder-riffle__story-window p {
+      max-width: 100%;
+    }
+
+    .folder-riffle__viewport {
+      inset: 220px 0 0;
+    }
+
+    .folder-card {
+      width: min(540px, 94%);
+      height: min(330px, 48vw);
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .folder-riffle__progress {
+      width: 190px;
+    }
+
+    .folder-card {
+      width: 100%;
+      height: 270px;
+    }
+  }
+
+  /* Refined Why Choose storytelling deck */
+  .why-feature {
+    position: relative;
+  }
+
+  .folder-riffle {
+    min-height: clamp(540px, 72svh, 700px);
+    overflow: visible;
+  }
+
+  .folder-riffle__glow {
+    display: none;
+  }
+
+  .folder-riffle__story {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 4;
+    width: 42%;
+    min-height: 260px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: clamp(24px, 4vw, 72px);
+  }
+
+  .folder-riffle__eyebrow {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .folder-riffle__story-window {
+    min-height: 180px;
+  }
+
+  .folder-riffle__story-window h3 {
+    max-width: 430px;
+    margin-bottom: 18px;
+    color: #0b1c35;
+    font-size: clamp(2.2rem, 4vw, 4.25rem);
+    letter-spacing: -.065em;
+    line-height: .98;
+  }
+
+  .folder-riffle__story-window p {
+    max-width: 390px;
+    color: #526b87;
+    font-size: .96rem;
+    line-height: 1.7;
+  }
+
+  .folder-riffle__progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(250px, 100%);
+    margin-top: 30px;
+    color: #8ca0ba;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+  }
+
+  .folder-riffle__progress-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(37, 99, 235, .18);
+  }
+
+  .folder-riffle__progress-line span {
+    display: block;
+    height: 100%;
+    background: var(--primary);
+    transition: width 180ms ease;
+  }
+
+  .folder-riffle__viewport {
+    inset: 0 0 0 37%;
+    overflow: visible;
+  }
+
+  .folder-riffle__deck {
+    position: absolute;
+    inset: 0;
+    transform: translateX(0);
+    will-change: transform;
+  }
+
+  .folder-card {
+    top: 50%;
+    left: 50%;
+    width: min(560px, 92%);
+    height: clamp(300px, 49svh, 450px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  .folder-card__surface {
+    border-radius: 18px 22px 24px 24px;
+    background: #f9fcff;
+    box-shadow: 18px 24px 38px rgba(29, 78, 130, .13);
+  }
+
+  .folder-card__image {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    opacity: 1;
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .folder-card__surface::before,
+  .folder-card__surface::after {
+    display: none;
+  }
+
+  .folder-card.is-active .folder-card__surface {
+    box-shadow: 28px 38px 62px rgba(29, 78, 130, .2);
+  }
+
+  .folder-card:not(.is-active) .folder-card__image {
+    opacity: .82;
+  }
+
+  @media (max-width: 899px) {
+    .folder-riffle {
+      min-height: 650px;
+    }
+
+    .folder-riffle__story {
+      position: relative;
+      top: auto;
+      width: 100%;
+      min-height: 230px;
+      transform: none;
+      padding: 18px 0 0;
+    }
+
+    .folder-riffle__story-window {
+      min-height: 145px;
+    }
+
+    .folder-riffle__story-window h3 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .folder-riffle__viewport {
+      inset: 220px 0 0;
+      overflow: visible;
+    }
+
+    .folder-card {
+      width: min(540px, 94%);
+      height: min(330px, 48vw);
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .why-feature__intro {
+      margin-bottom: 28px;
+    }
+
+    .folder-riffle__story-window h3 {
+      font-size: 2rem;
+    }
+
+    .folder-card {
+      width: 100%;
+      height: 270px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .folder-riffle__progress-line span {
+      transition: none;
+    }
+  }
+
+  .services-grid,
+  .why-grid,
+  .portfolio-grid,
+  .equipment-grid,
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .timeline::before {
+    left: 0;
+    right: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  /* Refined Why Choose storytelling deck */
+  .why-feature {
+    position: relative;
+  }
+
+  .folder-riffle {
+    min-height: clamp(540px, 72svh, 700px);
+    overflow: visible;
+  }
+
+  .folder-riffle__glow {
+    display: none;
+  }
+
+  .folder-riffle__story {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 4;
+    width: 42%;
+    min-height: 260px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: clamp(24px, 4vw, 72px);
+  }
+
+  .folder-riffle__eyebrow {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .folder-riffle__story-window {
+    min-height: 180px;
+  }
+
+  .folder-riffle__story-window h3 {
+    max-width: 430px;
+    margin-bottom: 18px;
+    color: #0b1c35;
+    font-size: clamp(2.2rem, 4vw, 4.25rem);
+    letter-spacing: -.065em;
+    line-height: .98;
+  }
+
+  .folder-riffle__story-window p {
+    max-width: 390px;
+    color: #526b87;
+    font-size: .96rem;
+    line-height: 1.7;
+  }
+
+  .folder-riffle__progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(250px, 100%);
+    margin-top: 30px;
+    color: #8ca0ba;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+  }
+
+  .folder-riffle__progress-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(37, 99, 235, .18);
+  }
+
+  .folder-riffle__progress-line span {
+    display: block;
+    height: 100%;
+    background: var(--primary);
+    transition: width 180ms ease;
+  }
+
+  .folder-riffle__viewport {
+    inset: 0 0 0 37%;
+    overflow: visible;
+  }
+
+  .folder-riffle__deck {
+    position: absolute;
+    inset: 0;
+    transform: translateX(0);
+    will-change: transform;
+  }
+
+  .folder-card {
+    top: 50%;
+    left: 50%;
+    width: min(560px, 92%);
+    height: clamp(300px, 49svh, 450px);
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+
+  .folder-card__surface {
+    border-radius: 18px 22px 24px 24px;
+    background: #f9fcff;
+    box-shadow: 18px 24px 38px rgba(29, 78, 130, .13);
+  }
+
+  .folder-card__image {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    opacity: 1;
+    filter: saturate(1.05) contrast(1.02);
+  }
+
+  .folder-card__surface::before,
+  .folder-card__surface::after {
+    display: none;
+  }
+
+  .folder-card.is-active .folder-card__surface {
+    box-shadow: 28px 38px 62px rgba(29, 78, 130, .2);
+  }
+
+  .folder-card:not(.is-active) .folder-card__image {
+    opacity: .82;
+  }
+
+  @media (max-width: 899px) {
+    .folder-riffle {
+      min-height: 650px;
+    }
+
+    .folder-riffle__story {
+      position: relative;
+      top: auto;
+      width: 100%;
+      min-height: 230px;
+      transform: none;
+      padding: 18px 0 0;
+    }
+
+    .folder-riffle__story-window {
+      min-height: 145px;
+    }
+
+    .folder-riffle__story-window h3 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .folder-riffle__viewport {
+      inset: 220px 0 0;
+      overflow: visible;
+    }
+
+    .folder-card {
+      width: min(540px, 94%);
+      height: min(330px, 48vw);
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .why-feature__intro {
+      margin-bottom: 28px;
+    }
+
+    .folder-riffle {
+      min-height: 650px;
+    }
+
+    .folder-riffle__story-window h3 {
+      font-size: 2rem;
+    }
+
+    .folder-card {
+      width: 100%;
+      height: 270px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .folder-riffle__progress-line span {
+      transition: none;
+    }
+  }
+
+  .site-header {
+    padding: 14px 0;
+  }
+
+  .site-header .nav-wrap {
+    gap: 4px;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .site-header .brand {
+    gap: 4px;
+  }
+
+  .site-header .brand-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .site-header .brand-name {
+    font-size: clamp(1.5rem, 8.25vw, 2rem);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 16px;
+    right: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav .btn {
+    margin-top: 8px;
+  }
+
+  .site-nav .contact-swap-button {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .hero {
+    padding-top: 42px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .hero-actions .btn {
+    width: min(100%, 300px);
+  }
+
+  .hero-grid,
+  .why-grid,
+  .why-feature__grid,
+  .portfolio-grid,
+  .equipment-grid,
+  .field-grid,
+  .footer-grid,
+  .timeline,
+  .training-cards,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-feature__intro {
+    margin-bottom: 36px;
+  }
+
+  .why-feature__ecosystem {
+    min-height: 500px;
+  }
+
+  .riffle {
+    min-height: 590px;
+  }
+
+  .riffle-card:hover,
+  .riffle-card:focus-visible,
+  .riffle-card.is-active {
+    transform: translate3d(0, -38px, 60px) rotateZ(0deg) rotateY(0deg) scale(1.025);
+  }
+
+  .riffle-card {
+    width: 42%;
+  }
+
+  .riffle-card:nth-of-type(2) { left: 29%; top: 4%; }
+  .riffle-card:nth-of-type(3) { left: 58%; top: 8%; }
+  .riffle-card:nth-of-type(4) { left: 10%; top: 45%; }
+  .riffle-card:nth-of-type(5) { left: 38%; top: 48%; }
+  .riffle-card:nth-of-type(6) { left: 66%; top: 43%; }
+  .riffle-card:nth-of-type(7) { left: 21%; top: 72%; }
+  .riffle-card:nth-of-type(8) { left: 50%; top: 75%; }
+
+  .orbit {
+    inset: 56px 10px 12px;
+    min-height: 400px;
+  }
+
+  .orbit__ring--outer {
+    --orbit-size: min(100%, 340px);
+  }
+
+  .orbit__ring--middle {
+    --orbit-size: min(77%, 270px);
+  }
+
+  .orbit__ring--inner {
+    --orbit-size: min(53%, 185px);
+  }
+
+  .service-card {
+    min-height: 250px;
+    padding: 26px 24px 24px;
+  }
+
+  .service-card h3 {
+    max-width: 70%;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+  }
+
+  .service-illustration {
+    width: 56%;
+  }
+
+  .folder-riffle {
+    width: 100%;
+    min-height: 560px;
+  }
+
+  .folder-card {
+    width: min(520px, calc(100vw - 48px));
+    height: 350px;
+  }
+
+  .folder-card__copy {
+    right: 25px;
+    bottom: 42px;
+    left: 25px;
+  }
+
+  .folder-card__copy h3 {
+    font-size: clamp(1.7rem, 8vw, 2.45rem);
+  }
+
+  .folder-riffle {
+    min-height: 520px;
+  }
+
+  .folder-riffle__viewport {
+    inset: 0;
+  }
+
+  .folder-card {
+    top: 72px;
+    width: calc(100vw - 32px);
+    height: 330px;
+  }
+
+  .folder-card__copy {
+    right: 24px;
+    bottom: 38px;
+    left: 24px;
+  }
+
+  .folder-card__copy h3 {
+    font-size: clamp(1.75rem, 8vw, 2.45rem);
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-copy {
+    gap: 8px;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    left: 18px;
+    width: 2px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    height: auto;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 48px;
+  }
+
+  .timeline-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-bottom: 0;
+  }
+
+  .training-layout {
+    padding: 28px 20px;
+  }
+
+  .contact-form {
+    padding: 20px 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-inner div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq-feature {
+    gap: 34px;
+  }
+
+  .faq-feature__intro h2 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem);
+  }
+
+  .faq-feature__trigger {
+    min-height: 66px;
+    padding: 17px 0;
+    font-size: 0.96rem;
+  }
+
+  .faq-feature__answer-copy {
+    padding: 0 0 18px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .site-header .nav-toggle {
+    display: block;
+  }
+
+  .site-header .site-nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 16px;
+    right: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow);
+  }
+
+  .site-header .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav-root {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .fallback-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    border-radius: 20px;
+  }
+
+  .fallback-nav .nav-link {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+
+  .fallback-nav .nav-link.active {
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: 999px;
+  }
+
+  .fallback-nav .nav-link::after {
+    display: none;
+  }
+
+  .site-nav .nimbus-nav {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 20px;
+  }
+
+  .site-nav .nimbus-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding-inline: 16px;
+  }
+
+  .site-nav .nimbus-nav:not([data-compact="false"]) .nimbus-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+  }
+
+  .site-nav .nimbus-water,
+  .site-nav .nimbus-drop {
+    display: none !important;
+  }
+
+}
+
+/* Final Hairline Riffle overrides. Keep after legacy responsive rules. */
+.folder-riffle {
+  min-height: clamp(540px, calc(100svh - 150px), 680px);
+  overflow: visible;
+}
+
+@media (min-width: 900px) {
+  .folder-riffle {
+    position: sticky;
+    top: 118px;
+  }
+}
+
+.folder-riffle__viewport {
+  inset: 0;
+  overflow: visible;
+}
+
+.folder-riffle__deck {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.folder-riffle__story {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 4;
+  width: min(34%, 390px);
+  min-height: 260px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 24px;
+}
+
+.folder-riffle__story-window {
+  min-height: 180px;
+  max-width: 380px;
+}
+
+.folder-riffle__story-window h3 {
+  max-width: 360px;
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: .98;
+}
+
+.folder-riffle__story-window p {
+  max-width: 360px;
+  line-height: 1.7;
+}
+
+.folder-riffle__progress {
+  width: 220px;
+  gap: 10px;
+}
+
+.folder-riffle__progress-line {
+  flex: 1;
+}
+
+.folder-card {
+  top: 50%;
+  left: 50%;
+  width: min(560px, calc(100vw - 64px));
+  height: clamp(340px, calc(100svh - 300px), 460px);
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.folder-card__surface {
+  background: #f9fcff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.folder-card__image {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.folder-card__surface::before,
+.folder-card__surface::after {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .folder-riffle {
+    min-height: 650px;
+  }
+
+  .folder-riffle__story {
+    position: relative;
+    top: auto;
+    width: 100%;
+    min-height: 230px;
+    transform: none;
+    padding: 18px 0 0;
+  }
+
+  .folder-riffle__story-window {
+    min-height: 145px;
+    max-width: 100%;
+  }
+
+  .folder-riffle__story-window h3,
+  .folder-riffle__story-window p {
+    max-width: 100%;
+  }
+
+  .folder-riffle__viewport {
+    inset: 220px 0 0;
+  }
+
+  .folder-card {
+    width: min(540px, 94%);
+    height: min(330px, 48vw);
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 560px) {
+  .folder-riffle__progress {
+    width: 190px;
+  }
+
+  .folder-card {
+    width: 100%;
+    height: 270px;
+  }
+}
+
+/* Equipment & Technology Ball Pit */
+@media (max-width: 899px) {
+  .tech-pit__stage {
+    height: 540px;
+  }
+}
+
+@media (max-width: 560px) {
+  .tech-pit__stage {
+    height: 400px;
+  }
+}

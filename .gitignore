@@ -1,0 +1,31 @@
+node_modules/
+dist/
+build/
+.vite/
+.cache/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+
+.env
+.env.*
+!.env.example
+.env.local
+.vercel/
+*.zip
+
+# Local reference recordings and logo-reveal copies (not used by the site).
+/aboutus tetx.mp4
+/demo.mp4
+/faq.mp4
+/flip.mp4
+/gsap .mp4
+/gsap 99.mp4
+/gsap demo 3rd.mp4
+/hairline riffle.mp4
+/problem.mp4
+/scoll jitter.mp4
+/slow load.mp4
+/liquid-glass-logo-reveal.tsx
+/SeaTech-Liquid-Glass-Logo-Reveal/

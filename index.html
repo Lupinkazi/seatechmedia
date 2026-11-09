@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      const navigationType = performance.getEntriesByType("navigation")[0]?.type;
+      if (
+        navigationType === "reload" &&
+        !window.location.hash
+      ) {
+        window.history.scrollRestoration = "manual";
+        window.addEventListener(
+          "pageshow",
+          () => {
+            window.setTimeout(() => {
+              window.scrollTo(0, 0);
+              window.history.scrollRestoration = "auto";
+            }, 0);
+          },
+          { once: true },
+        );
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SeaTechMedia provides professional photography, videography, media production, digital marketing, creative design, event management, equipment rental, website development, and IT solutions."
+    />
+    <meta
+      name="keywords"
+      content="SeaTechMedia, media production, digital marketing, photography, videography, IT solutions, equipment rental, creative agency"
+    />
+    <meta property="og:title" content="SeaTechMedia | Creative Media, Digital Marketing & IT Solutions" />
+    <meta
+      property="og:description"
+      content="Creative media, digital marketing, events, branding, and technology solutions for businesses and organizations."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="theme-color" content="#2563EB" />
+    <link rel="icon" type="image/png" href="assets/orginal offically logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <title>SeaTechMedia | Creative Media, Digital Marketing & IT Solutions</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home" aria-label="SeaTechMedia home">
+          <img class="brand-logo" src="assets/orginal offically logo.png" alt="SeaTech Media logo" />
+          <span class="brand-name">SeaTechMedia</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="site-nav" id="primary-nav">
+          <div class="site-nav-root" id="primary-nav-root">
+            <nav class="fallback-nav" aria-label="Main navigation">
+              <a class="nav-link active" href="#home" aria-current="page"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.2 12 4l8.5 7.2M6 9.6V20h12V9.6M10 20v-5h4v5" /></svg><span>Home</span></a>
+              <a class="nav-link" href="#about"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" /></svg><span>About</span></a>
+              <a class="nav-link" href="#services"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5s6 6.4 6 10.6a6 6 0 0 1-12 0C6 9.9 12 3.5 12 3.5Z" /></svg><span>Services</span></a>
+              <a class="nav-link" href="#portfolio"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.2 3.6 5.4l2.7 6.8-2.7 6.4L21 12.2Zm-14.7 0H13" /></svg><span>Our Work</span></a>
+              <a class="nav-link" href="#process"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8" /><path d="M4.8 20c1.2-3.4 4-5 7.2-5s6 1.6 7.2 5" /></svg><span>Our Process</span></a>
+              <a class="nav-link" href="#contact"><svg class="fallback-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z" /><path d="M8 9h8M8 12h5" /></svg><span>Contact</span></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero section">
+        <video
+          class="hero-background-video"
+          autoplay
+          muted
+          playsinline
+          loop
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="assets/perfect-live-hero-h264.mp4" type="video/mp4" />
+        </video>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div id="hero-wordmark-root" class="hero-title-root reveal">
+              <h1 class="hero-title">Creative Media. Powerful Digital Solutions.</h1>
+            </div>
+            <p class="hero-specialties">Creative media · digital marketing · IT solutions</p>
+            <p class="hero-text">
+              From professional media production and creative branding to digital marketing and technology solutions,
+              SeaTechMedia helps businesses communicate, create, and grow.
+            </p>
+            <div class="hero-actions">
+              <a href="#services" class="btn btn-primary">Explore Our Services</a>
+              <a href="#contact" class="btn btn-secondary">Let's Work Together</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="about-visual" id="about-showcase-root"></div>
+
+          <div class="about-copy" id="about-copy-root">
+            <noscript>
+              <p class="section-tag">ABOUT SEATECHMEDIA</p>
+              <h2 id="about-title">Where Creativity Meets Technology</h2>
+              <p class="about-description">
+                SeaTechMedia is a creative media and digital solutions company focused on delivering professional media
+                production, digital communication, marketing, and technology solutions. We bring creative ideas and
+                technical expertise together to help individuals, organizations, and businesses establish their identity,
+                reach their audiences, and achieve their objectives.
+              </p>
+              <div class="about-pillars">
+                <article class="about-pillar">
+                  <h3>MISSION</h3>
+                  <p>To help brands and organizations communicate clearly through creative media, impactful storytelling,
+                    thoughtful marketing, and connected digital experiences.</p>
+                </article>
+                <article class="about-pillar">
+                  <h3>VISION</h3>
+                  <p>To become a trusted creative partner for businesses and organizations seeking integrated media,
+                    marketing, and digital solutions that create meaningful and lasting impact.</p>
+                </article>
+              </div>
+              <ul class="about-values" aria-label="Company values">
+                <li><span>Creativity</span></li><li><span>Professionalism</span></li><li><span>Innovation</span></li>
+                <li><span>Quality</span></li><li><span>Reliability</span></li><li><span>Customer Satisfaction</span></li>
+              </ul>
+            </noscript>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="container">
+          <div id="services-root"></div>
+        </div>
+      </section>
+
+      <section class="section why-us">
+        <div class="container">
+          <div id="why-choose-root"></div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section portfolio">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-tag">Our Work</p>
+            <h2>Our Work Speaks for Itself.</h2>
+          </div>
+
+          <div id="portfolio-filters" class="portfolio-filters reveal" role="group" aria-label="Portfolio filters">
+          </div>
+
+          <div id="portfolio-deck-root"></div>
+          <div id="portfolio-grid" class="portfolio-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="process" class="section process">
+        <div id="process-root"></div>
+      </section>
+
+      <section id="equipment" class="section equipment" aria-labelledby="equipment-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-tag">EQUIPMENT &amp; TECHNOLOGY</p>
+            <h2 id="equipment-title">Powered by Precision.</h2>
+          </div>
+
+          <div id="equipment-root"></div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="container">
+          <div id="faq-root"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div id="contact-root"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#home">
+            <img class="brand-logo" src="assets/logo-footer-dark.png" alt="SeaTech Media logo" />
+            <span class="brand-name">SeaTechMedia</span>
+          </a>
+          <p>SeaTechMedia delivers creative media, digital marketing, and technology solutions for brands, businesses, and organizations.</p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Our Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#services">Media & Production</a></li>
+            <li><a href="#services">Digital Marketing</a></li>
+            <li><a href="#services">Online Media</a></li>
+            <li><a href="#services">Event Management</a></li>
+            <li><a href="#services">Equipment & IT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Social</h3>
+          <ul>
+            <li><a href="https://www.facebook.com/share/g/1GiTk2myss/" target="_blank" rel="noreferrer">Facebook</a></li>
+            <li><a href="https://www.instagram.com/seatechmedia?obrf=ampybXBuenQzY3Br" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href="https://youtube.com/@seatech-media?si=RQxE4ZKlrii9hj0V" target="_blank" rel="noreferrer">YouTube</a></li>
+            <li><a href="https://www.tiktok.com/@seatechmedia?_r=1&_t=ZS-9B7xJDGjiPV" target="_blank" rel="noreferrer">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-inner">
+          <p>© <span id="year"></span> SeaTechMedia. All rights reserved.</p>
+          <div>
+            <a href="pages/privacy-policy.html">Privacy Policy</a>
+            <a href="pages/terms.html">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+    <div id="portfolio-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-content">
+        <button type="button" class="modal-close" aria-label="Close project preview">×</button>
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-body">
+          <span id="modal-category" class="modal-category"></span>
+          <h3 id="modal-title"></h3>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
