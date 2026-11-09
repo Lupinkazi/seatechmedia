@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import TumbleDeckShowcase from "./ui/tumble-deck-showcase";
 import { getWorkCategory, type WorkCategoryId } from "../data/work-categories";
+import {
+  getResponsiveWorkImageSrcSet,
+  WORK_IMAGE_SIZES,
+} from "../lib/work-images";
 
 // Categories with portfolio imagery use the flip deck; IT opens its external project.
 const DECK_CATEGORIES: readonly WorkCategoryId[] = [
@@ -68,7 +72,9 @@ export default function WorkDeck() {
             alt={item.imageAlt}
             height="360"
             loading="lazy"
+            sizes={WORK_IMAGE_SIZES}
             src={item.image}
+            srcSet={getResponsiveWorkImageSrcSet(item.image)}
             width="480"
           />
         </span>
@@ -98,7 +104,9 @@ export default function WorkDeck() {
             alt={allItems[0].imageAlt}
             height="768"
             loading="lazy"
+            sizes={WORK_IMAGE_SIZES}
             src={allItems[0].image}
+            srcSet={getResponsiveWorkImageSrcSet(allItems[0].image)}
             width="927"
           />
         </span>
@@ -124,7 +132,12 @@ export default function WorkDeck() {
     <TumbleDeckShowcase
       key={deckKey}
       ariaLabel={`${category.label} showcase${subcategory !== "All" ? ` — ${subcategory}` : ""}`}
-      cards={items.map((item) => ({ src: item.image, alt: item.imageAlt }))}
+      cards={items.map((item) => ({
+        src: item.image,
+        alt: item.imageAlt,
+        srcSet: getResponsiveWorkImageSrcSet(item.image),
+        sizes: WORK_IMAGE_SIZES,
+      }))}
     />
   );
 }

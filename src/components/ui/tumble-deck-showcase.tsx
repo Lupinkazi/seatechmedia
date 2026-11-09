@@ -1,6 +1,7 @@
 import * as React from "react";
 import gsap from "gsap";
 import { cardPose, clamp01, deckAdvance, fallAngle, poolSize, slotIndex, wrap, type Pose } from "./tumble-deck-math";
+import { WORK_IMAGE_SIZES } from "../../lib/work-images";
 
 /*
  * Tumble Deck Showcase — a stack of pictures standing on edge, one behind the
@@ -16,6 +17,8 @@ import { cardPose, clamp01, deckAdvance, fallAngle, poolSize, slotIndex, wrap, t
 export type TumbleCard = {
   src: string;
   alt?: string;
+  srcSet?: string;
+  sizes?: string;
 };
 
 export type TumbleDeckShowcaseProps = {
@@ -61,13 +64,15 @@ export default function TumbleDeckShowcase({
       const img = imgRefs.current[j];
       if (!el || !img || j >= pool) return;
       const k = slotIndex(j, pos, pool, n);
-      if (slotK.current[j] !== k) {
+      const p = cardPose(k, pos, depth);
+      if (slotK.current[j] !== k && p.opacity > 0) {
         slotK.current[j] = k;
         const c = cards[wrap(k, n)];
+        img.sizes = c.sizes ?? WORK_IMAGE_SIZES;
+        img.srcset = c.srcSet ?? "";
         img.src = c.src;
         img.alt = c.alt ?? "";
       }
-      const p = cardPose(k, pos, depth);
       el.style.transform = `translate3d(0, ${-p.lift}px, ${p.z * gap}px) rotateX(${p.angle}deg)`;
       el.style.opacity = String(p.opacity);
       el.style.visibility = p.opacity > 0 ? "visible" : "hidden";
@@ -253,6 +258,7 @@ export default function TumbleDeckShowcase({
               height={Math.round(720 / aspect)}
               draggable={false}
               decoding="async"
+              loading="lazy"
             />
           </div>
         ))}

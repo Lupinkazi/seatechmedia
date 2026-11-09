@@ -1,4 +1,8 @@
 import { getWorkCategory, WORK_CATEGORIES } from '../src/data/work-categories.ts';
+import {
+  getResponsiveWorkImageSrcSet,
+  PORTFOLIO_GRID_IMAGE_SIZES,
+} from '../src/lib/work-images.ts';
 
 const siteConfig = {
   companyName: 'SeaTechMedia',
@@ -318,7 +322,22 @@ function initializeLiquidBrand(brandName) {
   }
 }
 
-document.querySelectorAll('.brand-name').forEach((brandName) => {
+const headerBrandName = document.querySelector('.site-header .brand-name');
+const desktopBrandViewport = window.matchMedia('(min-width: 900px)');
+let headerBrandInitialized = false;
+
+const initializeDesktopHeaderBrand = () => {
+  if (!headerBrandName || !desktopBrandViewport.matches || headerBrandInitialized) {
+    return;
+  }
+  headerBrandInitialized = true;
+  initializeLiquidBrand(headerBrandName);
+};
+
+initializeDesktopHeaderBrand();
+desktopBrandViewport.addEventListener('change', initializeDesktopHeaderBrand);
+
+document.querySelectorAll('.footer-brand .brand-name').forEach((brandName) => {
   initializeLiquidBrand(brandName);
 });
 
@@ -393,8 +412,12 @@ function renderPortfolio(filter, subcategory) {
 
   portfolioGrid.innerHTML = items
     .map(function(item) {
+      var srcSet = getResponsiveWorkImageSrcSet(item.image);
+      var responsiveAttributes = srcSet
+        ? ' srcset="' + srcSet + '" sizes="' + PORTFOLIO_GRID_IMAGE_SIZES + '"'
+        : '';
       return '<article class="portfolio-item" data-category="' + item.categoryId + '">' +
-        '<img src="' + item.image + '" alt="' + item.imageAlt + '" width="900" height="600" loading="lazy" decoding="async" />' +
+        '<img src="' + item.image + '"' + responsiveAttributes + ' alt="' + item.imageAlt + '" width="900" height="600" loading="lazy" decoding="async" />' +
         '<div class="portfolio-overlay"><div class="portfolio-copy"><div>' +
         '<strong>' + item.title + '</strong>' +
         '<span>' + item.category + '</span>' +

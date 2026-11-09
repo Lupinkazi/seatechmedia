@@ -32,7 +32,7 @@ createRoot(heroWordmarkMount).render(
     <MurmurationWordmark
       word={"Creative Media.\nPowerful Digital Solutions."}
       birds={6000}
-      palette={{ ink: "#111827" }}
+      palette={{ ink: "#000000" }}
       flyFor={2.7}
       holdFor={0.4}
       reeds={false}

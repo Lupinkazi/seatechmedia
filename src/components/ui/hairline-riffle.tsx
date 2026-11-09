@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -36,6 +36,17 @@ export default function Riffle({ cards }: RiffleProps) {
   const activeIndexRef = useRef(0);
   const preloadedImagesRef = useRef(new Set<string>());
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia("(max-width: 899px)").matches,
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 899px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +62,7 @@ export default function Riffle({ cards }: RiffleProps) {
     let syncTrackCleanup: () => void = () => undefined;
     const context = gsap.context(() => {
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const isDesktop = () => window.matchMedia("(min-width: 900px)").matches;
+      const isDesktop = () => !isMobile;
       const responsiveOffset = (index: number) => {
         const offset = stackOffsets[index];
         const scale = isDesktop() ? 1 : 0.16;
@@ -78,6 +89,7 @@ export default function Riffle({ cards }: RiffleProps) {
         const position = responsiveOffset(index);
         gsap.set(card, {
           xPercent: -50,
+          ...(isMobile ? { yPercent: -50 } : {}),
           x: position.x,
           y: position.y,
           rotation: position.rotate,
@@ -93,8 +105,16 @@ export default function Riffle({ cards }: RiffleProps) {
       const transitionDuration = 1;
       const phaseB = (cards.length - 1) * transitionDuration;
       const phaseC = 0.8;
-      const scrollPerTransition = reducedMotion ? 0.72 : 0.8;
-      const handoffTimes = cards.slice(1).map((_, index) => phaseA + index * transitionDuration + 0.72);
+      const scrollPerTransition = reducedMotion
+        ? isDesktop()
+          ? 0.72
+          : 0.24
+        : isDesktop()
+          ? 0.8
+          : 0.32;
+      const handoffTimes = cards.slice(1).map((_, index) =>
+        phaseA + index * transitionDuration + (isMobile ? 0.58 : 0.72),
+      );
       const getDockPercent = () => {
         if (!isDesktop() || !storyRef.current || !cardElements[0]) return 0;
         const stageRect = stage.getBoundingClientRect();
@@ -107,7 +127,7 @@ export default function Riffle({ cards }: RiffleProps) {
           ((desiredLeft - initialLeft) / deck.clientWidth) * 100,
         );
       };
-      if (storyRef.current) {
+      if (!isMobile && storyRef.current) {
         gsap.set(storyRef.current, {
           autoAlpha: 0,
           y: 16,
@@ -115,17 +135,16 @@ export default function Riffle({ cards }: RiffleProps) {
         });
       }
       const track = trackRef.current;
-      const scrollDistance = () =>
-        Math.max(window.innerHeight * (reducedMotion ? 0.8 : 4.8), (cards.length - 1) * window.innerHeight * scrollPerTransition);
+      const scrollDistance = () => {
+        const perTransition = (cards.length - 1) * window.innerHeight * scrollPerTransition;
+        return isDesktop()
+          ? Math.max(window.innerHeight * (reducedMotion ? 0.8 : 4.8), perTransition)
+          : Math.max(window.innerHeight * 0.65, perTransition);
+      };
       const stickyTop = () => Math.ceil(headerHeight() + 18);
       // Native CSS sticky pinning runs on the compositor, so the stage cannot lag the scroll position like a JS-fixed pin does.
       const syncTrack = () => {
         if (!track) return;
-        if (!isDesktop()) {
-          track.style.height = "";
-          stage.style.top = "";
-          return;
-        }
         stage.style.top = `${stickyTop()}px`;
         track.style.height = `${stage.offsetHeight + scrollDistance()}px`;
       };
@@ -162,7 +181,7 @@ export default function Riffle({ cards }: RiffleProps) {
         duration: phaseA,
         ease: "none",
       }, 0);
-      if (storyRef.current) {
+      if (!isMobile && storyRef.current) {
         timeline.to(storyRef.current, {
           autoAlpha: 1,
           y: 0,
@@ -210,7 +229,7 @@ export default function Riffle({ cards }: RiffleProps) {
         duration: phaseC,
         ease: "none",
       }, phaseCStart);
-      if (storyRef.current) {
+      if (!isMobile && storyRef.current) {
         timeline.to(storyRef.current, {
           autoAlpha: 0,
           y: 14,
@@ -233,14 +252,17 @@ export default function Riffle({ cards }: RiffleProps) {
       stage.style.top = "";
       context.revert();
     };
-  }, [cards]);
+  }, [cards, isMobile]);
 
   const animateTo = (nextIndex: number) => {
     const timeline = sequenceRef.current;
     if (!timeline) return;
     const trigger = timeline.scrollTrigger;
     if (!trigger) return;
-    const progress = (0.8 + nextIndex) / (0.8 + (cards.length - 1) + 0.8);
+    const targetTime = isMobile && nextIndex > 0
+      ? 0.8 + nextIndex - 1 + 0.59
+      : 0.8 + (isMobile ? 0 : nextIndex);
+    const progress = targetTime / (0.8 + (cards.length - 1) + 0.8);
     const root = document.documentElement;
     const previousScrollBehavior = root.style.scrollBehavior;
     root.style.scrollBehavior = "auto";
