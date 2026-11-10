@@ -862,14 +862,22 @@ document.addEventListener('submit', (event) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ fullName, email, phone, service, budget, message: messageValue })
   })
-    .then((response) => {
+    .then(async (response) => {
       if (!response.ok) throw new Error('Request failed');
+      const result = await response.json();
+      if (result?.ok !== true) throw new Error('Acceptance not confirmed');
       event.target.reset();
       setFormStatus('Thanks! Your inquiry was sent. We will reply within one business day.', 'success');
     })
     .catch(() => {
-      setFormStatus('We could not send your inquiry right now. Opening your email app as a backup.', 'error');
-      window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${sanitizedBody}`;
+      setFormStatus('We could not confirm your inquiry was sent. Please try again or ', 'error');
+      const target = statusMessage();
+      if (target) {
+        const link = document.createElement('a');
+        link.href = `mailto:${siteConfig.email}?subject=${subject}&body=${sanitizedBody}`;
+        link.textContent = 'send it using your email app';
+        target.append(link, '.');
+      }
     })
     .finally(() => {
       if (submitButton) submitButton.disabled = false;

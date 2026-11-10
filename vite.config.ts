@@ -6,8 +6,20 @@ function contactApi(env: Record<string, string>): Plugin {
   const middleware = async (req: any, res: any, next: () => void) => {
     if (!req.url?.startsWith("/api/contact")) return next();
     Object.assign(process.env, env);
-    let raw = "";
-    for await (const chunk of req) raw += chunk;
+    const chunks: Buffer[] = [];
+    let length = 0;
+    for await (const chunk of req) {
+      const bytes = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      length += bytes.length;
+      if (length > 20 * 1024) {
+        res.statusCode = 413;
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify({ error: "Request too large." }));
+        return;
+      }
+      chunks.push(bytes);
+    }
+    const raw = Buffer.concat(chunks).toString("utf8");
     const reply = {
       setHeader: (k: string, v: string) => res.setHeader(k, v),
       status(code: number) {
